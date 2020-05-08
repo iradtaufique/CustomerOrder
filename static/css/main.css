@@ -1,0 +1,10 @@
+body{
+        background-color: #ebeff5;
+    }
+    .section{
+        margin: 20px;
+    }
+
+#div_id_name, #div_id_phone, #div_id_email{
+    width:50%;
+}

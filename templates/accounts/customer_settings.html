@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <style>
+    .img-circle{
+        width: 190px;
+        height: 190px;
+        border-radius: 50%;
+        margin-left: 50px;
+        margin-top: 30px;
+    }
+    </style>
+    {% for message in messages %}
+        <div class="alert {{message.tags}} alert-dismissible fade show text-center" role="alert">
+          <strong>{{message}}</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    {% endfor %}
+<div class="row">
+    <div class="col-md-3">
+        <div class="card card-body bg-info" style="height: 100%;">
+            <a href="{% url 'home' %}" class="btn btn-warning">back home</a>
+            <hr>
+            <img class="img-circle" src="{{ request.user.customer.profile_pic.url }}" alt="">
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <div class="card card-body bg-info" style="height: 100%;">
+            <form action="" method="post" enctype='multipart/form-data'>
+                {% csrf_token %}
+{#                {{ form | crispy }}#}
+                {{ form.name|as_crispy_field }}
+                {{ form.phone|as_crispy_field }}
+                {{ form.email|as_crispy_field }}
+                {{ form.profile_pic|as_crispy_field }}
+                <button class="btn btn-sm btn-success">Update Information</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

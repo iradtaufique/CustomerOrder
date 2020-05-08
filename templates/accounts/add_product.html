@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <style>
+    .requiredField{
+        display: none;
+    }
+    {##add_id{#}
+    {#    width: 200%!important;#}
+    {#}#}
+    </style>
+
+ {% for foo in messages %}
+     {% if foo.tags == 'alert-danger' %}
+    <div class="alert {{foo.tags}} alert-dismissible fade show text-center" role="alert">
+      <strong>{{foo}}</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+     {% endif %}
+ {% endfor %}
+{% with url_name=request.resolver_match.url_name %}
+    {% if url_name == 'add_tags' %}
+        <h5 class="text-center text-info">ADD TAG</h5>
+        <form action="" method="get">
+        <div class="row justify-content-center">
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="">Number of Tags</label>
+                    {{ tag_num.order_number|as_crispy_field }}
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <input type="submit" class="btn btn-info btn-sm" value="Set Number" style="margin-top:35px;">
+            </div>
+        </div>
+        </form>
+
+        <div class="row justify-content-center">
+        <div class="col-md-6">
+        <div class="card card-body">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ formset.management_form }}
+                <div class="form-group">
+                    {% for form in formset %}
+                    <label for="">Tag Name</label>
+                    {{ form.name|as_crispy_field }}
+                    {% endfor %}
+                </div>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-info btn-sm" value="Save" style="width: 50px;">
+                </div>
+            </form>
+        </div>
+        </div>
+        </div>
+    {% elif url_name == 'add_product' %}
+        <h5 class="text-center text-info">add product</h5>
+        <div class="row justify-content-center">
+            <div class="col-sm-9">
+              <div class="card card-body">
+                <form action="" method="post">
+                    {% csrf_token %}
+{#                    {{ form|crispy }}#}
+                    <div class="row">
+                        <div class="col-sm-3">
+                             <div class="form-group">
+                                 <label for="">Product Name</label>
+                                 {{ form.prod_name|as_crispy_field }}
+                             </div>
+                        </div>
+                        <div class="col-sm-3">
+                             <div class="form-group">
+                                 <label for="">Product Price</label>
+                                 {{ form.price|as_crispy_field }}
+                             </div>
+                        </div>
+                        <div class="col-sm-3">
+                             <div class="form-group">
+                                 <label for="">Product Price</label>
+                                 {{ form.category|as_crispy_field }}
+                             </div>
+                        </div>
+                        <div class="col-sm-3">
+                             <div class="form-group">
+                                 <label for="">Description</label>
+                                 {{ form.description|as_crispy_field }}
+                             </div>
+                        </div>
+                        <div class="col-sm-3">
+                             <div class="form-group">
+                                 <label for="">Tags</label>
+                                 {{ form.tags|as_crispy_field }}
+                             </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <input type="submit" class="btn btn-info btn-sm w-200" value="Save">
+                    </div>
+                </form>
+              </div>
+            </div>
+        </div>
+
+    {% endif %}
+{% endwith %}
+{% endblock %}

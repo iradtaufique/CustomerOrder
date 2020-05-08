@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+ {% for foo in messages %}
+    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+      <strong>{{foo}}</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+ {% endfor %}
+ <div class="row">
+ <div class="col-md-10">
+ <div class=" card card-body">
+     <h5>Products</h5>
+     <table class="table table-sm ">
+         <tr>
+             <th>Product</th>
+             <th>Category</th>
+             <th>Description</th>
+             <th>Price</th>
+         </tr>
+         {% for foo in all_product %}
+         <tr>
+         <td><a href="{% url 'delete_product' foo.id %}">{{ foo.prod_name }}</a></td>
+         <td>{{ foo.category }}</td>
+         <td>{{ foo.description }}</td>
+         <td>{{ foo.price }}</td>
+         </tr>
+         {% endfor %}
+
+     </table>
+ </div>
+ </div>
+ <div class="col-2">
+     <div class="card card-body">
+         <a href="{% url 'add_tags' %}" class="btn btn-info btn-sm ">Add Tags</a><br>
+         <a href="{% url 'add_product' %}" class="btn btn-info btn-sm">Add Products</a>
+     </div>
+
+     <div class="card card-body mt-3">
+         <h6 class="">available tags</h6>
+         <hr>
+         {% for tag in all_tags %}
+             <a href="{% url 'delete_tag' tag.id %}">{{ tag }}</a>
+         {% endfor %}
+
+     </div>
+
+ </div>
+
+ </div>
+{% endblock %}

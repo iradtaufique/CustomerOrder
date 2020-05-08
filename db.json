@@ -1,0 +1,229 @@
+[
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "admin",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "customer",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$xevGh6M6dz23$OShIrVob7EdkdE8cYrOPrUOZzsL9Qm+0C8R8TKy4q0Y=",
+    "last_login": "2020-05-03T16:39:25.168Z",
+    "is_superuser": true,
+    "username": "Admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-05-02T19:36:12Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$ZEUMOBf3RgOG$Are9kOe0jskqCWWHKpROK409iQ92I16ULtn5J0zKvXQ=",
+    "last_login": "2020-05-02T21:47:47.462Z",
+    "is_superuser": false,
+    "username": "Taufique",
+    "first_name": "",
+    "last_name": "",
+    "email": "iradukunda.ta@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-05-02T19:41:47.857Z",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8g6xrfh8zy0zc4uuxt6swho73msshpdq",
+  "fields": {
+    "session_data": "MDZhNmE3ZTBmYTkyOGVjYWY3MmI1YTI0NGNhMmZiZGU3YjU1MTA3YTp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3Yzg4Mjk5NDU2YmMyNmU4ZWVlNDk3NTJkMDhkODZjYzkxYTM1MDMzIn0=",
+    "expire_date": "2020-05-16T21:21:47.989Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "cd044sxr3vtjr6xejw3vvtvykdl4b8dx",
+  "fields": {
+    "session_data": "YTVkNzc4OGZkYTdhYTc1MWUxNDkzYjEyM2Y2YjAzNDE0ZTJlNWMyYTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJlMjY5MDI0YzFlNzlmMDBiYjY5OTNmMTFhMmQ3NjAxYjAwN2EzNDU2In0=",
+    "expire_date": "2020-05-17T16:39:25.290Z"
+  }
+},
+{
+  "model": "accounts.product",
+  "pk": 1,
+  "fields": {
+    "name": "Beans",
+    "price": 600.0,
+    "category": "Indoor",
+    "description": "Description",
+    "date_created": "2020-05-02T21:06:17.287Z",
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "accounts.product",
+  "pk": 2,
+  "fields": {
+    "name": "Maize",
+    "price": 890.0,
+    "category": "Indoor",
+    "description": "Description",
+    "date_created": "2020-05-02T21:09:33.757Z",
+    "tags": [
+      2
+    ]
+  }
+},
+{
+  "model": "accounts.product",
+  "pk": 3,
+  "fields": {
+    "name": "Rice",
+    "price": 700.0,
+    "category": "Indoor",
+    "description": "Description",
+    "date_created": "2020-05-02T21:11:21.119Z",
+    "tags": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "accounts.tags",
+  "pk": 1,
+  "fields": {
+    "name": "tag 2"
+  }
+},
+{
+  "model": "accounts.tags",
+  "pk": 2,
+  "fields": {
+    "name": "tag 1"
+  }
+},
+{
+  "model": "accounts.order",
+  "pk": 1,
+  "fields": {
+    "customer": 1,
+    "product": 1,
+    "date_created": "2020-05-02T21:21:27.558Z",
+    "status": "Pending",
+    "note": ""
+  }
+},
+{
+  "model": "accounts.order",
+  "pk": 2,
+  "fields": {
+    "customer": 1,
+    "product": 2,
+    "date_created": "2020-05-02T21:21:27.710Z",
+    "status": "Pending",
+    "note": ""
+  }
+},
+{
+  "model": "accounts.order",
+  "pk": 3,
+  "fields": {
+    "customer": 1,
+    "product": 3,
+    "date_created": "2020-05-02T21:21:27.889Z",
+    "status": "Pending",
+    "note": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2020-05-02T19:38:10.232Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "admin",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2020-05-02T19:38:16.724Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "customer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2020-05-02T19:38:46.597Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "1",
+    "object_repr": "Admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2020-05-02T19:39:38.287Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "1",
+    "object_repr": "Admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2020-05-02T19:40:29.609Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "1",
+    "object_repr": "Admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+  }
+}
+]

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <form action="" method="get">
+    <div class="row justify-content-center">
+    <div class="col-2">{{ order_number.order_number|as_crispy_field }}</div>
+    <div class="col-2"><button type="submit" class="btn btn-info" style="margin-top: 35px;">Set Number</button></div>
+    </div>
+    </form>
+
+
+    <div class="row text-center justify-content-center mt-3">
+    <div class="col-6">
+        <div class="card card-body">
+            <form action="" method="post">
+            {% csrf_token %}
+                {{ formset.management_form }}
+                {% for foo in formset %}
+                <div class="row">
+                <div class="col-md-4">
+                    {{ foo.product|as_crispy_field }}
+                </div>
+                <div class="col-md-4">
+                    {{ foo.status|as_crispy_field }}
+                </div>
+                <div class="col-md-4">
+                    {{ foo.note|as_crispy_field }}
+                </div>
+                </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-info btn-sm">Submit</button>
+            </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}
